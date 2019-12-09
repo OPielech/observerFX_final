@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+
+}
+
+group 'edu.ib'
+version '0.1'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+}
+
+javafx {
+    version = "11.0.2"
+    modules =  [ 'javafx.controls' , 'javafx.fxml']
+}
+mainClassName='edu.ib.Main'
