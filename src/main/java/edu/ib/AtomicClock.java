@@ -5,14 +5,18 @@ import java.util.ArrayList;
 
 public class AtomicClock implements Runnable, Observable {
     private Thread worker;
-    protected volatile boolean isRunning = false;
+    private volatile boolean isRunning = false;
     private int interval;
     private LocalTime localTime;
     private ArrayList<Observer> observers;
 
 
+    public boolean isRunning(){
+        return isRunning;
+    }
+
     public AtomicClock() {
-        interval=2000;
+        interval=1000;
         observers= new ArrayList<>();
     }
 
@@ -24,6 +28,10 @@ public class AtomicClock implements Runnable, Observable {
 
     public void stop() {
         isRunning = false;
+    }
+
+    public void resume(){
+        isRunning=true;
     }
 
     public void interrupt() {
